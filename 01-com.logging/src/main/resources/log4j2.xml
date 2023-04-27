@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Appenders>
+        <!-- appenders define the output destination for log messages
+
+        can be java console, a txt file or database. Or all of them at the same time
+        -->
+
+        <!--indicates that the log messages will be on the console-->
+        <Console name="Console" target="SYSTEM.OUT">
+            <!-- spesifices the log messages-->
+            <PatternLayout pattern="%d{dd-MM-yyyy HH:mm:ss} [%t] %-5level %logger{36} - (%F:%L) - %msg%n"/>
+
+            <!--
+
+            %d{HH:mm:ss.SSS} shows the date
+            [%t] shows at which method the log worked.
+            %-5level shows the level of the log
+            %logger{36} shows the class that the log worked
+            %msg%n shows the log message
+
+            (%F:%L) shows at which file and line number the log worked
+
+            -->
+
+        </Console>
+
+    </Appenders>
+    <Loggers>
+        <!-- here you can spesificy different loggers with different levels-->
+
+        <!-- if a log is not spesificed, Root will be attended to that log-->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/> <!-- ref="Pattern name" the pattern you want to use in that log-->
+        </Root>
+    </Loggers>
+</Configuration>
