@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+	
+	<Properties>
+		<Property name ="path">C:\Users\90538\Desktop\logging\logFiles\</Property>
+	</Properties>
+	
+    <Appenders>
+		
+		<RollingFile name="rolling" fileName="${path}personal.log" filePattern="${path}personal-%d{yyyy-MM-dd-HH-mm}-%i.log">
+			
+			<PatternLayout pattern = "%-5level | %logger{36} | (%F:%L) --- %msg%n" />
+			
+			
+			<Policies>
+				<SizeBasedTriggeringPolicy size="3 KB" />
+			</Policies>
+			
+			<DefaultRolloverStrategy max="200"/>
+			
+		</RollingFile>
+		
+    </Appenders>
+    <Loggers>
+        <!-- here you can spesificy different loggers with different levels-->
+
+        <!-- if a log is not spesificed, Root will be attended to that log-->
+        <Root level="INFO">
+            <AppenderRef ref="rolling"/> <!-- ref="Pattern name" the pattern you want to use in that log-->
+        </Root>
+        
+    </Loggers>
+</Configuration>
